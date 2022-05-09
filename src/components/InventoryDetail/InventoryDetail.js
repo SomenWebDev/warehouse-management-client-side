@@ -74,14 +74,6 @@ const InventoryDetail = () => {
                 </Button>
               </Card.Body>
             </Card>
-            {/* <img className="img-fluid" src={inventory.img} alt="" />
-            <p>{inventory._id}</p>
-            <p>{inventory.name}</p>
-            <p>{inventory.description}</p>
-            <p>{inventory.brand}</p>
-            <p>{inventory.price}</p>
-            <p>{inventory.quantity}</p>
-            <button onClick={deliveryHandleBtn}>Delivered</button> */}
           </Col>
           <Col lg={6}>
             <form onSubmit={handleRestock} className="mt-5">
