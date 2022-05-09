@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Contact from "../Contact/Contact";
 
-import Inventory from "../Inventory/Inventory";
 import Partners from "../Partners/Partners";
 import SingleInventory from "../SingleInventory/SingleInventory";
 import useInventories from "./../../hooks/useInventories";
