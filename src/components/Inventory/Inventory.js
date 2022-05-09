@@ -1,7 +1,7 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+
 import { Container, Row } from "react-bootstrap";
+
 import useInventories from "../../hooks/useInventories";
 import SingleInventory from "../SingleInventory/SingleInventory";
 
@@ -18,7 +18,7 @@ const Inventory = () => {
     <div>
       <Container className="my-5">
         <Row xs={1} lg={3}>
-          {inventories.slice(0, 6).map((inventory) => (
+          {inventories.map((inventory) => (
             <SingleInventory
               key={inventory._id}
               inventory={inventory}

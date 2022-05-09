@@ -5,7 +5,7 @@
         "price": "470000",
         "quantity":"45",
         "brand":"Yamaha",
-        "description": "Mileage (City):48.75 kmpl,Displacement : 155 ccEngine, TypeLiquid-cooled, 4-stroke",
+        "description": "Milage:48.75 kmpl,Displacement : 155 ccEngine, TypeLiquid-cooled, 4-stroke",
         "img": "https://i.ibb.co/SXZhLsG/Yahamaha-R15-V3.png"
     },
     {
@@ -53,7 +53,7 @@
         "price": "291958",
         "quantity":"165",
         "brand":"Suzuki",
-        "description": "4-Stroke, 1-cylinder, Air cooled,155 cc displacement",
+        "description": "4-Stroke, 1-cylinder, Air cooled,155 cc displacement,45 kmpl milage",
         "img": "https://i.ibb.co/NWMMS2W/Suzuki-gixer-sf.png"
     },
    
@@ -63,7 +63,7 @@
         "price": "350000",
         "quantity": "55",
         "brand":"Suzuki",
-        "description": "4-Stroke, 1-cylinder, Air cooled engine,155 cc displacement",
+        "description": "4-Stroke, 1-cylinder, Air cooled engine,155 cc displacement,45kmpl milage",
     
         "img": "https://i.ibb.co/hCL78ct/Suzuki-gsx-r.png"
     },

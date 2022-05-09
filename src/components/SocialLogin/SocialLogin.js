@@ -23,7 +23,9 @@ const SocialLogin = () => {
   }
   return (
     <div>
-      <Button onClick={() => signInWithGoogle()}>Continue with Google</Button>
+      <Button onClick={() => signInWithGoogle()} className="w-100">
+        Continue with Google
+      </Button>
       <ToastContainer />
     </div>
   );

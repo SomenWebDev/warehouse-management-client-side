@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import axios from "axios";
+import auth from "./../../firebase.init";
 
-import useInventories from "../../hooks/useInventories";
+const MyItems = () => {
+  const [user] = useAuthState(auth);
+  const [inventories, setInventories] = useState([]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/selectedItems`, {
+  //     method: "GET",
+  //     headers: {
+  //       token: localStorage.getItem("token"),
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setInventories(json);
+  //       console.log(setInventories(json));
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+  useEffect(() => {
+    const myInventories = async () => {
+      const email = user.email;
+      const url = `https://boiling-fortress-50173.herokuapp.com/myItems?email=${email}`;
+      const { data } = await axios.get(url);
+      setInventories(data);
+    };
+    myInventories();
+  }, [user]);
 
-const ManageInventories = () => {
-  const [inventories, setInventories] = useInventories();
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
@@ -24,8 +50,8 @@ const ManageInventories = () => {
   };
   return (
     <div className="container">
-      <h1 className="text-center">Manage Inventories</h1>
-      <Table responsive="sm" bordered variant="dark">
+      <h1>Manage Inventories</h1>
+      <Table responsive="sm" striped bordered>
         <thead>
           <tr>
             <th>Product Id</th>
@@ -60,4 +86,4 @@ const ManageInventories = () => {
   );
 };
 
-export default ManageInventories;
+export default MyItems;

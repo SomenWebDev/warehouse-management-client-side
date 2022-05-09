@@ -50,38 +50,48 @@ const Login = () => {
     toast("Invalid Email/PassWord");
   }
   return (
-    <div style={{ width: "450px" }} className=" container mx-auto">
-      <h1>Please Login</h1>
+    <div
+      style={{ maxWidth: "450px" }}
+      className="container mx-auto shadow p-3 mb-5 bg-body rounded mt-5"
+    >
+      <h1 className="text-center">Welcome</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 m-auto" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" ref={emailRef} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
             ref={passwordRef}
           />
         </Form.Group>
+        <div className="text-end">
+          <p
+            onClick={handleReset}
+            className="text-danger btn btn-link text-decoration-none text-center"
+          >
+            Forget password
+          </p>
+        </div>
 
-        <Button variant="primary" type="submit">
-          Submit
+        <Button type="submit" className="btn btn-lg w-100">
+          Login
         </Button>
-        <p
-          onClick={handleReset}
-          className="text-danger btn btn-link text-decoration-none"
-        >
-          Forget password
-        </p>
-        <p>
-          New in this site?<Link to="/register">Register</Link>
-        </p>
-      </Form>
 
-      <SocialLogin></SocialLogin>
+        <p className="text-center mt-3">
+          New in this site?
+          <Link to="/register" className=" text-decoration-none">
+            Register
+          </Link>
+        </p>
+        <p className="text-center">Or</p>
+      </Form>
+      <div className="mb-5">
+        <SocialLogin></SocialLogin>
+      </div>
+
       <ToastContainer />
     </div>
   );

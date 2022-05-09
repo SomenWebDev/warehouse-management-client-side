@@ -33,13 +33,19 @@ const Register = () => {
     return <p>loading....</p>;
   }
   if (error) {
-    toast("You are already registered with this email");
+    toast(error.message);
   }
   return (
-    <div>
+    <div
+      style={{ maxWidth: "450px" }}
+      className="mx-auto mt-5 shadow p-3 mb-5 bg-body rounded"
+    >
+      <h1 className="text-center">Register</h1>
       <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Control type="name" placeholder="Your Name" />
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -49,7 +55,6 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -58,13 +63,17 @@ const Register = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="w-100">
           Register
         </Button>
       </Form>
-      <p>
-        Already Registered?<Link to="/login">Login</Link>
+      <p className="text-center mt-2">
+        Already Registered?
+        <Link to="/login" className="text-decoration-none">
+          Login
+        </Link>
       </p>
+      <p className="text-center">Or</p>
       <SocialLogin></SocialLogin>
     </div>
   );

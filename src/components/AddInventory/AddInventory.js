@@ -1,23 +1,31 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import auth from "../../firebase.init";
 
 const AddInventory = () => {
+  const [user] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
-    console.log(data);
-    const url = `http://localhost:5000/inventory`;
+    const newData = { ...data, email: user.email };
+
+    const url = `https://boiling-fortress-50173.herokuapp.com/inventory`;
     fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(newData),
     })
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-      });
-    reset();
+        if (result) {
+          reset();
+        }
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="w-50 mx-auto">
